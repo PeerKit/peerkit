@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "PeerCDN client library",
   "devDependencies": {
-    "uglify-js": "*",
+    "uglify-js": "~1",
     "mocha": "*",
     "expect.js": "*"
   }
