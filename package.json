@@ -1,0 +1,10 @@
+{
+  "name": "peercdn",
+  "version": "0.0.0",
+  "description": "PeerCDN client library",
+  "devDependencies": {
+    "uglify-js": "*",
+    "mocha": "*",
+    "expect.js": "*"
+  }
+}
