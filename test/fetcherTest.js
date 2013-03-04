@@ -22,6 +22,7 @@ describe('fetcher', function(){
     });
   }
 
+
   util.inherits(CdnClient, EventEmitter);
 
   
@@ -33,20 +34,50 @@ describe('fetcher', function(){
   PeerFetcher2.prototype = Object.create(PeerFetcher.prototype);
   */
 
-  var testPeerFetcher = new PeerFetcher({name: 'herp.psd', size: '1024'}, [{}, {}, {}]);
-	
+  
+
+ 
+  describe('_init', function(done){
+    it ('should init without errors', function(done){
+      var testPeerFetcher = new PeerFetcher({name: 'herp.psd', size: '1024'}, [{}, {}, {}],{maxSize:1000});
+      expect(testPeerFetcher._chunks.length).to.be(2);
+      var expectedChunks = [{start:0 , end:999} , {start:1000, end:1023}];
+      expect(testPeerFetcher._chunks).to.eql(expectedChunks);
+      done();    
+    })
+  });
+
+
   describe('_defineChunks', function(){
-    it('', function(){
-      
+    it ('works for fileSize a divisor of maxChunkSize', function(done){
+      var testPeerFetcher = new PeerFetcher({name: 'herp.psd', size: '1600'}, [{}, {}, {}]);
+      expect(testPeerFetcher._chunks.length).to.be(2);
+      var expectedChunks = [{start:0 , end:799} , {start:800, end:1599}];
+      expect(testPeerFetcher._chunks).to.eql(expectedChunks);
+      done();    
     });
-	});
-  describe('_connectPeer', function(){
-    it('', function(){
-      
+    it ('works for fileSize one less than maxChunkSize', function(done){
+      var testPeerFetcher = new PeerFetcher({name: 'herp.psd', size: '799'}, [{}, {}, {}]);
+      expect(testPeerFetcher._chunks.length).to.be(1);
+      var expectedChunks = [{start:0 , end:798}];
+      expect(testPeerFetcher._chunks).to.eql(expectedChunks);
+      done();    
+    });
+    it('works for fileSize one greater than maxChunkSize', function(done){
+      var testPeerFetcher = new PeerFetcher({name: 'herp.psd', size: '801'}, [{}, {}, {}]);
+      expect(testPeerFetcher._chunks.length).to.be(2);
+      var expectedChunks = [{start:0 , end:799}, {start:800 , end:800}];
+      expect(testPeerFetcher._chunks).to.eql(expectedChunks);
+      done()
     });
   });
+
   describe('_receiveData', function(){
-    it('', function(){
+    it('puts a chunk of data into the correct place in the fileBuffer', function(){
+      var testPeerFetcher = new PeerFetcher({name: 'herp.psd', size: '1024'}, [{}, {}, {}]);
+      var arrayBuffer = new ArrayBuffer(15);
+      
+      testPeerFetcher._receiveData(0,undefined,790,805,)
       
     });
   });
