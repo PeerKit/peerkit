@@ -1,6 +1,6 @@
 describe('fetcher', function(){
-  CdnClient = function(options) {
-    if (!(this instanceof CdnClient)) return new CdnClient(options);
+  PeerClient = function(options) {
+    if (!(this instanceof PeerClient)) return new PeerClient(options);
     
     EventEmitter.call(this);
 
@@ -23,12 +23,12 @@ describe('fetcher', function(){
 
   }
 
-  CdnClient.prototype.send = function(msg){
+  PeerClient.prototype.send = function(msg){
     
   };
 
 
-  util.inherits(CdnClient, EventEmitter);
+  util.inherits(PeerClient, EventEmitter);
 
 
   
@@ -45,7 +45,7 @@ describe('fetcher', function(){
  
   describe('_init', function(done){
     it ('should init without errors', function(done){
-      var testPeerFetcher = new PeerFetcher({name: 'herp.psd', size: '1024'}, [{}, {}, {}],{maxSize:1000});
+      var testPeerFetcher = new PeerFetcher({name: 'herp.psd', size: '1024'}, [{}, {}, {}],{chunkSize:1000});
       expect(testPeerFetcher._chunks.length).to.be(2);
       var expectedChunks = [{start:0 , end:999} , {start:1000, end:1023}];
       expect(testPeerFetcher._chunks).to.eql(expectedChunks);
