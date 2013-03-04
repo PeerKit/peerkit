@@ -26,8 +26,10 @@
   <script>mocha.setup('bdd')</script>
 
   <script src="utilTest.js"></script>
+
+
+  <!-- unit tests must happen at the end because the global namespace is overwritten. All integration tests must happen before the unit tests -->
   <script src="fetcherTest.js"></script>
-  <script src="../lib/client.js"></script>
 
   <script>
     mocha.run();
