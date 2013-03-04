@@ -20,10 +20,16 @@ describe('fetcher', function(){
       // Download image from Peers
 
     });
+
   }
+
+  CdnClient.prototype.send = function(msg){
+    
+  };
 
 
   util.inherits(CdnClient, EventEmitter);
+
 
   
   /*
@@ -74,10 +80,12 @@ describe('fetcher', function(){
 
   describe('_receiveData', function(){
     it('puts a chunk of data into the correct place in the fileBuffer', function(){
-      var testPeerFetcher = new PeerFetcher({name: 'herp.psd', size: '1024'}, [{}, {}, {}]);
+
+
+      var testPeerFetcher = new PeerFetcher({name: 'herp.psd', size: '1024'}, [{}, {}, {}], {debug: true});
       var arrayBuffer = new ArrayBuffer(15);
-      
-      testPeerFetcher._receiveData(0,undefined,790,805,)
+      testPeerFetcher._allPeers[0].emit('open');
+      testPeerFetcher._receiveData(0,undefined,790,805,arrayBuffer);
       
     });
   });
