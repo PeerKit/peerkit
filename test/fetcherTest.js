@@ -20,12 +20,17 @@ describe('fetcher', function(){
       // Download image from Peers
 
     });
+    this.emit('open');
 
   }
 
   PeerClient.prototype.send = function(msg){
     
   };
+
+  PeerFetcherListener = function(){
+
+  }
 
 
   util.inherits(PeerClient, EventEmitter);
@@ -79,13 +84,18 @@ describe('fetcher', function(){
   });
 
   describe('_receiveData', function(){
+    var testPeerFetcher = new PeerFetcher({name: 'herp.psd', size: '1024'}, [{}, {}, {}], {debug: true});
+    var arrayBuffer = new ArrayBuffer(15);
+    testPeerFetcher._receiveData(0,undefined,800,1023,arrayBuffer);
+
+    it('clears the current chunk of data from the peer', function(){
+      
+    });
+
     it('puts a chunk of data into the correct place in the fileBuffer', function(){
-
-
-      var testPeerFetcher = new PeerFetcher({name: 'herp.psd', size: '1024'}, [{}, {}, {}], {debug: true});
-      var arrayBuffer = new ArrayBuffer(15);
-      testPeerFetcher._allPeers[0].emit('open');
-      testPeerFetcher._receiveData(0,undefined,790,805,arrayBuffer);
+      
+    });
+    it('marks the peer as idle', function(){
       
     });
   });

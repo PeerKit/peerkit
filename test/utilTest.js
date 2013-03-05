@@ -95,7 +95,7 @@ describe('util', function(){
   it('randomToken', function() {
     testRandom(util.randomToken);
   });
-
+/*
 	describe('fillBuffer', function(){
     it('should error when lengths not equal', function(){
       var testFillBuffer = new ArrayBuffer(8);
@@ -121,4 +121,5 @@ describe('util', function(){
       expect(util.fillBuffer(testFillBuffer, 4, 7, testDataBuffer)).to.eql(actualFillBuffer);
 		});
 	});
+*/
 });
