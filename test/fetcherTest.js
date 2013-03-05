@@ -20,17 +20,15 @@ describe('fetcher', function(){
       // Download image from Peers
 
     });
-    this.emit('open');
-
-  }
-
-  PeerClient.prototype.send = function(msg){
+    this.send = function(msg){
     
-  };
-
-  PeerFetcherListener = function(){
-
+    };
+    setTimeout(function(){
+      self.emit('open');
+    },0);
+    
   }
+
 
 
   util.inherits(PeerClient, EventEmitter);
@@ -48,7 +46,7 @@ describe('fetcher', function(){
   
 
  
-  describe('_init', function(done){
+  describe('_init', function(){
     it ('should init without errors', function(done){
       var testPeerFetcher = new PeerFetcher({name: 'herp.psd', size: '1024'}, [{}, {}, {}],{chunkSize:1000});
       expect(testPeerFetcher._chunks.length).to.be(2);
@@ -84,19 +82,26 @@ describe('fetcher', function(){
   });
 
   describe('_receiveData', function(){
-    var testPeerFetcher = new PeerFetcher({name: 'herp.psd', size: '1024'}, [{}, {}, {}], {debug: true});
-    var arrayBuffer = new ArrayBuffer(15);
-    testPeerFetcher._receiveData(0,undefined,800,1023,arrayBuffer);
-
-    it('clears the current chunk of data from the peer', function(){
-      
-    });
-
-    it('puts a chunk of data into the correct place in the fileBuffer', function(){
-      
-    });
-    it('marks the peer as idle', function(){
-      
+    it('works', function(done){
+      var testPeerFetcher = new PeerFetcher({name: 'herp.psd', size: '1024'}, [{}, {}, {}], {debug: true});
+      setTimeout(function() {
+        var arrayBuffer = new ArrayBuffer(224);
+        var testIntArray = new Uint8Array(arrayBuffer)
+        for (var i = 0; i < testIntArray.length; i = i + 1){
+          testIntArray[i] = 0xFF
+        }
+        testPeerFetcher._receiveData(0,undefined,800,1023,arrayBuffer);
+        expect(testPeerFetcher._peers[0]).to.not.have.key('chunk');
+        var intArray = new Uint8Array(testPeerFetcher._buffer);
+        for (var i = 0; i < 800; i++){
+          expect(intArray[i]).to.equal(0);
+        }
+        for(var i = 800; i < 1024; i++){
+          expect(intArray[i]).to.equal(testIntArray[i-800]);
+        }
+       
+        done();
+      }, 0);
     });
   });
   describe('_invalidPeer', function(){
