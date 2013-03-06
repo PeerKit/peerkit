@@ -93,21 +93,60 @@ describe('fetcher', function(){
         testPeerFetcher._receiveData(0,undefined,800,1023,arrayBuffer);
         expect(testPeerFetcher._peers[0]).to.not.have.key('chunk');
         var intArray = new Uint8Array(testPeerFetcher._buffer);
+        //if you're wondering why this takes so long, it's because we have to check everything in the buffers. we can't do eql because the offset field is different
         for (var i = 0; i < 800; i++){
           expect(intArray[i]).to.equal(0);
         }
         for(var i = 800; i < 1024; i++){
           expect(intArray[i]).to.equal(testIntArray[i-800]);
         }
-       
+        expect(testPeerFetcher._workingPeers[0]).to.not.be.ok();
         done();
       }, 0);
     });
   });
+
   describe('_invalidPeer', function(){
-    it('', function(){
+    it('should delete the peer and chunk is back on queue in the obvious case', function(done){
+      var testPeerFetcher = new PeerFetcher({name: 'herp.psd', size: '1024'}, [{}, {}], {debug: true});
+      setTimeout(function() {
+        testPeerFetcher._chunks = [{start:1000, end:1023}];
+        testPeerFetcher._peers[0].chunk = {start:0 , end:999} 
+        testPeerFetcher._invalidPeer(0);
+        expect(testPeerFetcher._workingPeers).to.not.have.key(0);
+        expect(testPeerFetcher._chunks).to.eql([{start:1000, end:1023},{start:0 , end:999}]);
+        done();
+      }, 0);
+    });
+
+    it('should wake all peers if no chunks', function(done){
+      var testPeerFetcher = new PeerFetcher({name: 'herp.psd', size: '1024'}, [{}, {}, {}], {debug: true});
+      setTimeout(function() {
+        testPeerFetcher._chunks = [];
+        testPeerFetcher._peers[0].chunk = {start:0 , end:999}; // a special chunk to ensure it is passed
+        testPeerFetcher._peers[1].chunk = null;
+        testPeerFetcher._workingPeers[1] = false;
+        testPeerFetcher._invalidPeer(0);
+        expect(testPeerFetcher._peers[1].chunk).to.eql({start:0 , end:999});
+        done();
+      }, 0);
       
     });
+
+    //this test will timeout unless the fetcher is properly emitting
+    it('should emit unavailable if the very last peer fails and no chunks', function(done){
+      var testPeerFetcher = new PeerFetcher({name: 'herp.psd', size: '1024'}, [{}], {debug: true});
+      testPeerFetcher.on('unavailable', function(){
+        done();
+      });
+      setTimeout(function() {
+        testPeerFetcher._chunks = [];
+        testPeerFetcher._peers[0].chunk = {start:0 , end:799} 
+        testPeerFetcher._invalidPeer(0);
+      }, 0);
+
+    });
+
   });
   describe('_next', function(){
     it('', function(){
