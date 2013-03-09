@@ -148,7 +148,5 @@ a:hover {
 }
 
 #right {
-  text-align: left;
-  width: 205px;
-  float: right;
+  text-align: center;
 }
