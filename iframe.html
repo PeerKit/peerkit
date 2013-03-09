@@ -2,17 +2,25 @@
 <body>
 <script>
   window.addEventListener("message", receiveMessage, false);
- 
+
+  window.onload = function(){
+        var message = {};
+        message.name = "ready";
+
+    window.parent.postMessage(message,'*');
+
+  }
   function receiveMessage(event)
   {
-    if (event.data.name === "storeData"){
-      storeData(event);
+    console.log('got a message');
+    if (event.data.name === "storeData"){
+      storeData(event);
     }
     if (event.data.name === "getData"){
-      getData(event);
+      getData(event);
     }
     if (event.data.name === "deleteData"){
-      deleteData(event);
+      deleteData(event);
     }
     if (event.data.name === "deleteAll"){
       deleteAll(event);
@@ -23,15 +31,20 @@
     var key = event.data.url;
     var data = event.data.data;
     localStorage[key] = data;
+    
+    console.log('storing!');
   }
   
   function getData(event){
+    
+    console.log("fetching");
     var key = event.data.url;
     var data = localStorage[key];
     var source = event.source;
     
     var message = {};
     
+    console.log(data);
     message.name = "getData";
     message.data = data;
     message.url = key;
@@ -52,7 +65,7 @@
     
     message.name = "deleteData";
     message.success = true;
-    source.postMessage(message, "*");
+    event.source.postMessage(message, "*");
   }
   
 </script>
