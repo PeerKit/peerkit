@@ -1,0 +1,60 @@
+<html>
+<body>
+<script>
+  window.addEventListener("message", receiveMessage, false);
+ 
+  function receiveMessage(event)
+  {
+    if (event.data.name === "storeData"){
+      storeData(event);
+    }
+    if (event.data.name === "getData"){
+      getData(event);
+    }
+    if (event.data.name === "deleteData"){
+      deleteData(event);
+    }
+    if (event.data.name === "deleteAll"){
+      deleteAll(event);
+    }
+  }
+  
+  function storeData(event){
+    var key = event.data.url;
+    var data = event.data.data;
+    localStorage[key] = data;
+  }
+  
+  function getData(event){
+    var key = event.data.url;
+    var data = JSON.parse(localStorage[key]);
+    var source = event.source;
+    
+    var message = {};
+    
+    message.name = "getData";
+    message.data = data;
+    message.url = key;
+    
+    source.postMessage(message, "*");
+  }
+  
+  function deleteAll(event){
+    localStorage.clear();
+  }
+  
+  function deleteData(event){
+    var key = event.data.url;
+    localStorage[key] = '';
+    localStorage.removeItem(key);
+    
+    var message = {};
+    
+    message.name = "deleteData";
+    message.success = true;
+    source.postMessage(message, "*");
+  }
+  
+</script>
+</body>
+</html>
