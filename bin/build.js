@@ -47,7 +47,9 @@ var base = [
   , 'fetcher.js'
   , 'resources.js'
   , 'resourcegroup.js'
+  , 'receiver.js'
   , 'dom.js'
+  , 'peer.js'
   , 'client.js'
   , 'stub.js'
 ];
