@@ -27,7 +27,7 @@
   
   function getData(event){
     var key = event.data.url;
-    var data = JSON.parse(localStorage[key]);
+    var data = localStorage[key];
     var source = event.source;
     
     var message = {};
