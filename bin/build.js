@@ -46,8 +46,10 @@ var base = [
   , 'socket.js'
   , 'fetcher.js'
   , 'resources.js'
+  , 'resourcegroup.js'
   , 'dom.js'
   , 'client.js'
+  , 'stub.js'
 ];
 
 
