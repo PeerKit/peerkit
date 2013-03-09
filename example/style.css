@@ -1,0 +1,154 @@
+html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,th,var,optgroup{font-style:inherit;font-weight:inherit;}del,ins{text-decoration:none;}li{list-style:none;}caption,th{text-align:left;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:baseline;}sub{vertical-align:baseline;}legend{color:#000;}input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}input,button,textarea,select{font-size:100%;}
+a {outline: none;} /* Gets rid of Firefox's dotted borders */
+a img {border: none;} /* Gets rid of IE's blue borders */
+
+
+html, body {
+  background-color: #f2f2f2;
+  min-height: 100%;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-size: 17px;  
+  color: #333;
+}
+
+a {  
+  color: #000;
+}
+
+a:hover {
+  color: #666;
+}
+
+#wrap {
+  width: 500px;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+#status {
+  height: 151px;
+  font-family: Consolas;
+  font-size: 11px;
+  border-bottom: 2px solid #fff;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+@media 
+(-webkit-min-device-pixel-ratio: 2), 
+(min-resolution: 192dpi) { 
+  #logo {
+    background-image: url(../media/logo_big.png);
+    background-size: 154px 191px;
+  }
+}
+
+#content {
+  padding: 20px 15px
+}
+
+#content img {
+  border: 8px solid #fff;
+  border-bottom-width: 34px;
+  margin: 0 -8px;
+  box-shadow: 0 1px 4px #ccc;
+  border-radius: 2px;
+}
+
+#content h1 {
+  padding: 0 10px 8px 10px;
+  margin-top: 0;
+  margin-bottom: 13px;
+  font-size: 18px;
+  border-bottom: 1px solid #e3e3e3;
+  box-shadow: 0 1px 0 #fff;
+}
+
+#content h2 {
+  font-size: 18px;
+}
+
+#content p {
+  padding: 0 10px;
+  margin-bottom: 20px;
+  line-height: 1.7em;
+}
+
+
+#mce-EMAIL {
+  font-size: 18px;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  text-align: center;
+  padding: 15px 10px;
+  width: 350px;
+  background-color: #fff;
+  border: 4px solid #ddd;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px #ccc;
+  outline: 0;
+}
+
+.button {
+  border-radius: 2px;
+  background-color: #9f2326;
+  border: 0;
+  color: #fff;
+  text-align: center;
+  line-height: 1em;
+  padding: 10px 25px;
+  text-shadow: 0 -1px 0px #640a0a;
+  box-shadow: 0px 3px 1px 1px #640a0a;
+  transition: all 150ms ease-out;
+  -moz-transition: all 150ms ease-out;
+  -webkit-transition: all 150ms ease-out;
+  cursor: pointer;
+}
+
+.sub-button {
+  height: 50px;
+}
+
+.button:hover {
+  background-color: #871f21;
+}
+
+.button.grey {
+  background-color: #999;
+  box-shadow: 0px 3px 1px 1px #666;
+  text-shadow: 0 -1px 0px #666;
+}
+.button.grey:hover, .button.grey:active {
+  background-color: #888;
+}
+.button.grey:active {
+  background-color: #888;
+  box-shadow: 0px 0px 1px 1px #666;
+}
+
+.button:active {
+  margin-top: 3px;
+  background-color: #871f21;
+  box-shadow: 0px 0px 1px 1px #640a0a;
+}
+
+.clear {
+  clear: both;
+}
+
+#foot {
+  margin-top: 80px;
+  font-size: 16px;
+}
+
+#left {
+  width: 205px;
+  float: left;
+  text-align: right;
+}
+
+#right {
+  text-align: left;
+  width: 205px;
+  float: right;
+}
