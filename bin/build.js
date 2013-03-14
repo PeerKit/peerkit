@@ -51,6 +51,7 @@ var base = [
   , 'dom.js'
   , 'peer.js'
   , 'client.js'
+  , 'stub.js'
 ];
 
 
