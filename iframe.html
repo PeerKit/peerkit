@@ -1,31 +1,28 @@
 <html>
 <body>
 <script>
-  window.addEventListener("message", receiveMessage, false);
+  window.addEventListener("message", function receiveMessage(event) {
+    console.log('got a message');
+    switch (event.data.name) {
+      case 'store':
+        storeData(event);
+        break;
+      case 'deleteAll':
+        deleteAll();
+        break;
+      case 'getData':
+        getData(event);
+        break;
+      default:
+        // All bad
+    };
+  }, false);
 
   window.onload = function(){
-        var message = {};
-        message.name = "ready";
-
+    var message = {name: 'ready', url: location.toString()};
     window.parent.postMessage(message,'*');
+  };
 
-  }
-  function receiveMessage(event)
-  {
-    console.log('got a message');
-    if (event.data.name === "storeData"){
-      storeData(event);
-    }
-    if (event.data.name === "getData"){
-      getData(event);
-    }
-    if (event.data.name === "deleteData"){
-      deleteData(event);
-    }
-    if (event.data.name === "deleteAll"){
-      deleteAll(event);
-    }
-  }
   
   function storeData(event){
     var key = event.data.url;
@@ -42,20 +39,15 @@
     var data = localStorage[key];
     var source = event.source;
     
-    var message = {};
-    
-    console.log(data);
-    message.name = "getData";
-    message.data = data;
-    message.url = key;
-    
+    var message = {name: 'getData', data: data, url: key};
+       
     source.postMessage(message, "*");
   }
   
-  function deleteAll(event){
+  function deleteAll(){
     localStorage.clear();
   }
-  
+  /*
   function deleteData(event){
     var key = event.data.url;
     localStorage[key] = '';
@@ -66,7 +58,7 @@
     message.name = "deleteData";
     message.success = true;
     event.source.postMessage(message, "*");
-  }
+  }*/
   
 </script>
 </body>
