@@ -6,3 +6,4 @@
 ## If we get expired images, we currently use it anyways but remove from cache for next time. What if a peer requests this image (that is expired but in memory)?
 ## What is expiry of image received from peer? (This should be coming from server but currently is not)
 ## Detect if browser not compatible and fallback gracefully
+## Replenish CONN objects with message from server to client
