@@ -7,3 +7,4 @@
 ## What is expiry of image received from peer? (This should be coming from server but currently is not)
 ## Detect if browser not compatible and fallback gracefully
 ## Replenish CONN objects with message from server to client
+##Implement this._pc.oniceconnections when it exists See peer.js lines 43-44 for details. https://groups.google.com/d/msg/discuss-webrtc/vTCvw-L0P20/kie7GKDOKj4J
