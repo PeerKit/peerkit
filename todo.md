@@ -7,4 +7,6 @@
 ## What is expiry of image received from peer? (This should be coming from server but currently is not)
 ## Detect if browser not compatible and fallback gracefully
 ## Replenish CONN objects with message from server to client
-##Implement this._pc.oniceconnections when it exists See peer.js lines 43-44 for details. https://groups.google.com/d/msg/discuss-webrtc/vTCvw-L0P20/kie7GKDOKj4J
+## Implement this._pc.oniceconnections when it exists See peer.js lines 43-44 for details. https://groups.google.com/d/msg/discuss-webrtc/vTCvw-L0P20/kie7GKDOKj4J
+## Global directory does not know about collisions even though stores will be keyed on url (wasted space possible)
+## Save files that fail due to frame not loading have global directory available space leak
