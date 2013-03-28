@@ -1,1 +1,1 @@
-# PeerCDN client
+# PeerKit client

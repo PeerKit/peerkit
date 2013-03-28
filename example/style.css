@@ -25,15 +25,6 @@ a:hover {
   padding-top: 30px;
 }
 
-#status {
-  height: 151px;
-  font-family: Consolas;
-  font-size: 11px;
-  border-bottom: 2px solid #fff;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-
 @media 
 (-webkit-min-device-pixel-ratio: 2), 
 (min-resolution: 192dpi) { 

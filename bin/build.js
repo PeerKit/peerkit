@@ -12,7 +12,7 @@ var fs = require('fs')
  * @api private
  */
 
-var template = '/*! peercdn.%ext% build:' + package.version + ', %type%. Copyright(c) 2013 Eric Zhang <eric@ericzhang.com> */'
+var template = '/*! peerkit.%ext% build:' + package.version + ', %type%. Copyright(c) 2013 Eric Zhang <eric@ericzhang.com> */'
   , prefix = '\n(function(exports){\n'
   , development = template.replace('%type%', 'development').replace('%ext%', 'js')
   , production = template.replace('%type%', 'production').replace('%ext%', 'min.js')
@@ -30,7 +30,7 @@ var starttagIF = '// if node'
   , endtagIF = '// end node';
 
 /**
- * The modules that are required to create a base build of BinaryJS client.
+ * The modules that are required to create a base build of PeerKit client.
  *
  * @const
  * @type {Array}
@@ -186,12 +186,12 @@ if (!module.parent){
     if (err) return console.error(err);
 		console.log(__dirname);
     fs.write(
-        fs.openSync(__dirname + '/../dist/peercdn.js', 'w')
+        fs.openSync(__dirname + '/../dist/peerkit.js', 'w')
       , content
       , 0
       , 'utf8'
     );
-    console.log('Successfully generated the development build: peercdn.js');
+    console.log('Successfully generated the development build: peerkit.js');
   });
 
   // and build a production build
@@ -199,11 +199,11 @@ if (!module.parent){
     if (err) return console.error(err);
 
     fs.write(
-        fs.openSync(__dirname + '/../dist/peercdn.min.js', 'w')
+        fs.openSync(__dirname + '/../dist/peerkit.min.js', 'w')
       , content
       , 0
       , 'utf8'
     );
-    console.log('Successfully generated the production build: peercdn.min.js');
+    console.log('Successfully generated the production build: peerkit.min.js');
   });
 }

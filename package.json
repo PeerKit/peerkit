@@ -1,7 +1,7 @@
 {
-  "name": "peercdn",
+  "name": "peerkit",
   "version": "0.0.0",
-  "description": "PeerCDN client library",
+  "description": "PeerKit client library",
   "devDependencies": {
     "uglify-js": "~1",
     "mocha": "*",

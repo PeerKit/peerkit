@@ -1,5 +1,5 @@
 # TODO:
 
-## https://github.com/peerkit/peercdn/issues
+## https://github.com/peerkit/peerkit/issues
 
-## https://github.com/ericz/peercdn-server/issues
+## https://github.com/ericz/peerkit-server/issues

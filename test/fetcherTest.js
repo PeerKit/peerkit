@@ -12,7 +12,7 @@ describe('fetcher', function(){
     this._options = options;
 
 
-    // This connects to the PeerCDN server
+    // This connects to the PeerKit server
     var host = "localhost";
     var port = 8080;
     this._socket = new Socket(host, port);
