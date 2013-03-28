@@ -1,5 +1,7 @@
 # PeerKit client
 
+### http://peerkit.com
+
 ## What is PeerKit?
 
 PeerKit is a software-as-a-service that allows assets like images or files on your webpage to be downloaded peer-to-peer instead of from a central server. When many peers are accessing the same asset, PeerKit allows the peers to share with each other, saving you bandwidth and server load.
