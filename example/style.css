@@ -11,18 +11,37 @@ html, body {
   color: #333;
 }
 
+
 a {  
-  color: #000;
+  
+  text-decoration: none;
+  font-weight: bold;
+  color: #911d20;
 }
 
 a:hover {
-  color: #666;
+  color: #640a0a;
 }
 
 #wrap {
   width: 500px;
   margin: 0 auto;
   padding-top: 30px;
+}
+
+#header {
+  background-color: #fff;
+  height: 60px;
+  padding: 0 35px;
+}
+
+#status {
+  height: 151px;
+  font-family: Consolas;
+  font-size: 11px;
+  border-bottom: 2px solid #fff;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 @media 
@@ -46,7 +65,7 @@ a:hover {
   border-radius: 2px;
 }
 
-#content h1 {
+h1 {
   padding: 0 10px 8px 10px;
   margin-top: 0;
   margin-bottom: 13px;
@@ -55,11 +74,11 @@ a:hover {
   box-shadow: 0 1px 0 #fff;
 }
 
-#content h2 {
+h2 {
   font-size: 18px;
 }
 
-#content p {
+p {
   padding: 0 10px;
   margin-bottom: 20px;
   line-height: 1.7em;
@@ -130,14 +149,4 @@ a:hover {
 #foot {
   margin-top: 80px;
   font-size: 16px;
-}
-
-#left {
-  width: 205px;
-  float: left;
-  text-align: right;
-}
-
-#right {
-  text-align: center;
 }

@@ -1,0 +1,61 @@
+<html>
+<head>
+  <title>PeerKit Simple Demo</title>
+  <link rel="shortcut icon" href="http://peerkit.com/favicon.ico">
+  <link href="style.css" rel="stylesheet" type="text/css"> 
+  <link href="style_demo.css" rel="stylesheet" type="text/css"> 
+  <script src="../dist/peerkit.js"></script>
+  <script src="demo.js"></script>
+</head>
+<body>
+<a href="https://github.com/peerkit/peerkit"><img style="z-index: 9999;position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+<div id="header">
+  <a href="http://peerkit.com"><img src="logo.png" width="171" height="60"></a>
+</div>
+<div id="wrap">
+  <h2 id="loading">Loading image ...</h2>
+  <h2 id="good"><span class="green">&check;</span>&nbsp;&nbsp;This image was served by a peer</h2>
+  <span id="bad"><h2><span class="yellow">&check;</span>&nbsp;&nbsp;This image was served by the server</h2>Refresh the page and the image will download from a peer if possible.</span>
+  <h2 id="ugly"><span class="red">&check;</span>&nbsp;&nbsp;You need to be running Chrome 26+ to use PeerKit</h2>
+  <div id="content">
+    <div class="left">
+      <!-- Peer to peer this image! -->
+      <img data-peer-src="http://demo.peerkit.com/static/identity_demo.png" width="180" height="221">
+      <!-- -->
+    </div>
+    <br>
+    <div class="stat">Peers downloaded from: <div id="from">0</div></div>
+    <div class="stat"> Peers shared to: <div id="sharedto">0</div></div>
+    <div class="clear"></div>
+  </div>
+  <h2>What's going on?</h2>
+  <p>Thanks to the new WebRTC data channels, we can deliver images without a centralized server. The image above is being loaded directly from someone else using the site whenever possible.</p>
+  <p><a href="http://github.com/peerkit/peerkit">View Github for more information</a></p>
+  <h2>Keep updated</h2>
+  <p>We're going beta on April 7th. If you're interested in piloting a hosted version of PeerKit or just keeping up to date &mdash; sign up for our mailing list.</p>
+  
+  <div id="mc_embed_signup">
+    <form action="http://peerkit.us5.list-manage.com/subscribe/post?u=e11c9bebe3afc65a55207be92&amp;id=a69c9d1f00" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <div class="mc-field-group" align="center">
+        <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="your@email.com">
+      </div>
+      <p><div class="sub-button" align="center">
+        <input type="submit" value="Subscribe to updates" name="subscribe" id="mc-embedded-subscribe" class="button">
+      </div></p>
+    </form>
+  </div>
+  <h2>Under the hood</h2>
+  <pre id="status"></pre>
+</div>
+
+
+<p id="foot">&copy; 2013 PeerKit. Questions? Contact us at <a href="mailto:team@peerkit.com">team@peerkit.com</a>.</p>
+<div class="icons" align="center">
+  <a href="https://twitter.com/peerkit" class="twitter-follow-button" data-show-count="false">Follow @peerkit</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  <iframe src="http://ghbtns.com/github-btn.html?user=peerkit&repo=peerkit&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+    
+  </div>
+</body>
+
+</html>

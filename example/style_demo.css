@@ -1,0 +1,59 @@
+#status {
+  height: 151px;
+  font-family: Consolas;
+  font-size: 11px;
+  background-color: #fff;
+  border: 10px solid #fff;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+.green {
+  color: green;
+}
+
+.yellow {
+  color: #f4e712;
+}
+.left {
+  float: left;
+}
+.red {
+  color: red;
+}
+
+.right {
+  float: right;
+}
+
+.stat {
+  margin-left: 30px;
+  float: left;
+  width: 260px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.stat div {
+  margin-top: 5px;
+  background-color: #fff;
+  font-weight: bold;
+  color: black;
+  font-size: 20px;
+  padding: 8px;
+  text-align: center;
+  width: 30px;
+  color: green;
+}
+
+#good, #bad, #ugly {
+  display: none;
+}
+
+#loading {
+  color: #ccc;
+}
+#foot {
+  text-align: center;
+}
